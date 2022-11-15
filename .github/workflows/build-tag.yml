@@ -15,6 +15,6 @@ jobs:
           DOCKER_USERNAME: '${{ secrets.DOCKER_USERNAME }}'
           DOCKER_PASSWORD: '${{ secrets.DOCKER_PASSWORD }}'
         run: |
-          docker build --file Dockerfile --tag ${DOCKER_USERNAME}/godot-mono:${TAG} .
-          docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-          docker push ${DOCKER_USERNAME}/godot-mono:${TAG}
+          docker build . --file Dockerfile --tag $DOCKER_USERNAME/godot-mono:$TAG
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          docker push $DOCKER_USERNAME/godot-mono:$TAG
