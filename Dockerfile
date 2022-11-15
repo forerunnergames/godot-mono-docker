@@ -34,7 +34,7 @@ ENV ANDROID_SDK_PLATFORM 31
 ENV ANDROID_BUILD_TOOLS 30.0.3
 ENV RELEASE_NAME "stable"
 
-RUN apt-get update && apt-get install -y --no-install-recommends sudo openjdk-11-jdk unzip
+RUN apt-get update && apt-get install -y --no-install-recommends sudo openjdk-11-jdk unzip wget
 
 COPY --from=files /files/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless_64/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless.64 /usr/local/bin/godot
 COPY --from=files /files/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless_64/GodotSharp /usr/local/bin/GodotSharp
