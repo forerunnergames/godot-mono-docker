@@ -45,12 +45,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=files /files/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless_64/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless.64 /usr/local/bin/godot
 COPY --from=files /files/Godot_v${GODOT_VERSION}-${RELEASE_NAME}_mono_linux_headless_64/GodotSharp /usr/local/bin/GodotSharp
 COPY --from=files /files/templates /root/.local/share/godot/templates/${GODOT_VERSION}.${RELEASE_NAME}.mono
-COPY --from=files /files/cmdline-tools ${ANDROID_HOME}/cmdline-tools
+COPY --from=files /files/cmdline-tools ${ANDROID_HOME}/cmdline-tools/latest
 
-ENV PATH="${ANDROID_HOME}/cmdline-tools/cmdline-tools/bin:${PATH}"
+ENV PATH="${ANDROID_HOME}/cmdline-tools/cmdline-tools/latest/bin:${PATH}"
 
-RUN  yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --licenses
-RUN  ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager "platform-tools" "build-tools;${ANDROID_BUILD_TOOLS}" "platforms;android-${ANDROID_SDK_PLATFORM}" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
+RUN  yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
+RUN  ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager "platform-tools" "build-tools;${ANDROID_BUILD_TOOLS}" "platforms;android-${ANDROID_SDK_PLATFORM}" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;21.4.7075529"
 
 RUN keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999 \
     && mv debug.keystore /root/debug.keystore
