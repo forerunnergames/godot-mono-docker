@@ -57,6 +57,7 @@ RUN keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -key
 
 RUN godot -e -v -q
 
+RUN echo 'mono/builds/build_tool = 3' >> ~/.config/godot/editor_settings-3.tres
 RUN echo 'export/android/android_sdk_path = "/usr/lib/android-sdk"' >> ~/.config/godot/editor_settings-3.tres
 RUN echo 'export/android/debug_keystore = "/root/debug.keystore"' >> ~/.config/godot/editor_settings-3.tres
 RUN echo 'export/android/debug_keystore_user = "androiddebugkey"' >> ~/.config/godot/editor_settings-3.tres
