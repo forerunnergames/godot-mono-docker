@@ -4,7 +4,7 @@ WORKDIR /files
 
 RUN apk add -U unzip && rm -rf /var/cache/apk/*
 
-ENV GODOT_VERSION "3.5.1"
+ENV GODOT_VERSION "3.5.2"
 ENV RELEASE_NAME "stable"
 
 # This is only needed for non-stable builds (alpha, beta, RC)
@@ -29,7 +29,7 @@ FROM mono:latest
 USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV GODOT_VERSION "3.5.1"
+ENV GODOT_VERSION "3.5.2"
 ENV RELEASE_NAME "stable"
 ENV ANDROID_SDK_PLATFORM 32
 ENV ANDROID_BUILD_TOOLS 30.0.3
