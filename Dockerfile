@@ -4,7 +4,7 @@ WORKDIR /files
 
 RUN apk add -U unzip && rm -rf /var/cache/apk/*
 
-ENV GODOT_VERSION "3.5.2"
+ENV GODOT_VERSION "3.5.1"
 ENV RELEASE_NAME "stable"
 
 # This is only needed for non-stable builds (alpha, beta, RC)
